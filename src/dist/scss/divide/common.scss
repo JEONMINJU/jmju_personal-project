@@ -1,0 +1,152 @@
+/**
+* Created by jmju on 2023.01.25
+* [공통 SCSS]
+*/
+
+.mj {
+    // #region 숨김처리
+    &__title--hidden {
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+    // #endregion
+
+    // #region input 공통
+    input {
+        &::placeholder {
+            color: $color999;
+            opacity: 1;
+        }
+    
+        &:-ms-input-placeholder {
+            color: $color999;
+        }
+        
+        &::-ms-input-placeholder {
+            color: $color999;
+        }
+    
+        &::-ms-clear {
+            display: none;
+        }
+    
+        &:focus {
+            color: $color111;
+            border: 1px solid $color111;
+        }
+    
+        &:disabled,
+        &:read-only:not([type=submit]) {
+            background-color: $colorf7f8f9 !important;
+            color: $color999 !important;
+        }
+    
+        &[type="text"],
+        &[type="tel"] {
+            height: 40px;
+            padding: 0 10px;
+            background: $colorfff;
+            border: 1px solid $colorddd;
+            color: $color111;
+            font-size: 14px;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+    
+        &[type="password"] {
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid $colorddd;
+            background: $colorfff;
+            color: $color111;
+            font-size: 14px;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+    
+        &[type="number"] {
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid $colorddd;
+            background: $colorfff;
+            color: $color111;
+            font-size: 14px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            -moz-appearance: textfield;
+    
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    
+        &[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            cursor: pointer;
+        
+            &:checked {
+                background-position: -100px 0px;
+            }
+        
+            &:disabled {
+                background-position: -300px 0px;
+                
+                &:checked {
+                    background-position: -200px 0px;
+                }
+            }
+        
+            &:disabled+label {
+                color: $color999;
+            }
+        
+            & + label {
+              font-size: 14px;
+              color: $color666;
+              margin-left: 8px;
+            }
+        }
+    
+        &[type="radio"] {
+            width: 22px;
+            height: 22px;
+            outline:none;
+            -webkit-appearance : none;
+            -moz-appearance:none; /* Firefox */
+            appearance:none;
+            margin: 0;
+            vertical-align: middle;
+            cursor: pointer;
+        
+            &:checked {
+                background-position: -100px -100px;
+            }
+        
+            &:disabled {
+                background-position: -300px -100px;
+                &:checked {
+                    background-position: -200px -100px;
+                }
+            }
+        
+            &:disabled + label {
+                color: $color999;
+            }
+            
+            & + label {
+              font-size: 14px;
+              color: $color666;
+              margin-left: 8px;
+              vertical-align: middle;
+            }
+        }
+    }
+    // #endregion
+}

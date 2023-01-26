@@ -1,0 +1,524 @@
+@charset "UTF-8";
+/* 공통 */
+/* 폰트 변수 */
+/* 컬러 변수 */
+/* 기본 폰트 - Pretendard font */
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 100;
+  src: local("Pretendard Thin"), url(../../Pretendard-Thin.woff2) format("woff2"), url(../../Pretendard-Thin.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 200;
+  src: local("Pretendard ExtraLight"), url(../../Pretendard-ExtraLight.woff2) format("woff2"), url(../../Pretendard-ExtraLight.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Pretendard Light"), url(../../Pretendard-Light.woff2) format("woff2"), url(../../Pretendard-Light.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Pretendard Regular"), url(../../Pretendard-Regular.woff2) format("woff2"), url(../../Pretendard-Regular.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Pretendard Medium"), url(../../Pretendard-Medium.woff2) format("woff2"), url(../../Pretendard-Medium.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Pretendard SemiBold"), url(../../Pretendard-SemiBold.woff2) format("woff2"), url(../../Pretendard-SemiBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Pretendard Bold"), url(../../Pretendard-Bold.woff2) format("woff2"), url(../../Pretendard-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 800;
+  src: local("Pretendard ExtraBold"), url(../../Pretendard-ExtraBold.woff2) format("woff2"), url(../../Pretendard-ExtraBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Pretendard Black"), url(../../Pretendard-Black.woff2) format("woff2"), url(../../Pretendard-Black.woff) format("woff");
+}
+
+/* 폰트 */
+/**
+* Created by jmju on 2023.01.25
+* [Reset SCSS]
+*/
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Pretendard", sans-serif;
+  letter-spacing: -0.25px;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  min-width: 360px;
+  font-size: 13px;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+button,
+select,
+video {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-family: "Pretendard", sans-serif;
+  vertical-align: baseline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table caption {
+  display: none;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+i, em, address {
+  font-style: normal;
+}
+
+strong {
+  font-weight: inherit;
+}
+
+em {
+  font-weight: inherit;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+legend {
+  background-color: transparent;
+  border: 0;
+  color: transparent;
+  font-size: 0;
+  text-shadow: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: 0;
+  user-select: none;
+}
+
+label {
+  border: 0;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  opacity: 0;
+}
+
+input[type='number']::-webkit-outer-spin-button, input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html body.fb input:focus + span {
+  outline: 1px dotted #999 !important;
+}
+
+select {
+  outline: none;
+  appearance: none;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select:disabled {
+  opacity: 1;
+}
+
+textarea {
+  resize: none;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-indent: 0;
+}
+
+details summary {
+  display: block;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 페이지 */
+/**
+* Created by jmju on 2023.01.25
+* [공통 SCSS]
+*/
+.mj__title--hidden {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.mj input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.mj input:-ms-input-placeholder {
+  color: #999;
+}
+
+.mj input::-ms-input-placeholder {
+  color: #999;
+}
+
+.mj input::-ms-clear {
+  display: none;
+}
+
+.mj input:focus {
+  color: #111;
+  border: 1px solid #111;
+}
+
+.mj input:disabled, .mj input:read-only:not([type=submit]) {
+  background-color: #f7f8f9 !important;
+  color: #999 !important;
+}
+
+.mj input[type="text"], .mj input[type="tel"] {
+  height: 40px;
+  padding: 0 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #111;
+  font-size: 14px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.mj input[type="password"] {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.mj input[type="number"] {
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+}
+
+.mj input[type="number"]::-webkit-outer-spin-button, .mj input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mj input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.mj input[type="checkbox"]:checked {
+  background-position: -100px 0px;
+}
+
+.mj input[type="checkbox"]:disabled {
+  background-position: -300px 0px;
+}
+
+.mj input[type="checkbox"]:disabled:checked {
+  background-position: -200px 0px;
+}
+
+.mj input[type="checkbox"]:disabled + label {
+  color: #999;
+}
+
+.mj input[type="checkbox"] + label {
+  font-size: 14px;
+  color: #666;
+  margin-left: 8px;
+}
+
+.mj input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Firefox */
+  appearance: none;
+  margin: 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.mj input[type="radio"]:checked {
+  background-position: -100px -100px;
+}
+
+.mj input[type="radio"]:disabled {
+  background-position: -300px -100px;
+}
+
+.mj input[type="radio"]:disabled:checked {
+  background-position: -200px -100px;
+}
+
+.mj input[type="radio"]:disabled + label {
+  color: #999;
+}
+
+.mj input[type="radio"] + label {
+  font-size: 14px;
+  color: #666;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.mj__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background: #eee;
+}
+
+.mj__header__inner {
+  color: #666;
+  font-size: 30px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.mj__container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.mj__container__inner span {
+  font-size: 40px;
+  line-height: 56px;
+  font-weight: 600;
+  color: red;
+  border: 1px solid blue;
+}
+
+.mj__container__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mj__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background: #eee;
+}
+
+.mj__footer__inner {
+  color: #666;
+  font-size: 30px;
+  line-height: 26px;
+  font-weight: 600;
+}
+

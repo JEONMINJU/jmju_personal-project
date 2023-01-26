@@ -1,0 +1,83 @@
+/* 폰트 */
+@mixin useFont($size, $fontWeight:400) {
+    @if ($size == 44) {
+      font-size: 44px;
+      line-height: 44px;
+      font-weight: $fontWeight;
+    }
+    @else if ($size == 40) {
+      font-size: 40px;
+      line-height: 56px;
+      font-weight: $fontWeight;
+    }
+    @else if ($size == 36) {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 32) {
+        font-size: 32px;
+        line-height: 38px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 30) {
+      font-size: 30px;
+      line-height: 26px;
+      font-weight: $fontWeight;
+    }
+    @else if ($size == 28) {
+        font-size: 28px;
+        line-height: 34px; 
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 24) {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 22) {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 20) {
+        font-size: 20px;
+        line-height: 26px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 18) {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 16) {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 15) {
+        font-size: 15px;
+        line-height: 21px;
+        font-weight: $fontWeight;
+    }
+    @else if ($size == 14) {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: $fontWeight;
+    }
+    @else if ($size == 13) {
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: $fontWeight;
+    }
+    @else if ($size == 12) {
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: $fontWeight;
+    }
+    @else {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+}
