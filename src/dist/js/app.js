@@ -8,3 +8,5 @@
 //         <h1>${test(minju, 123)} webpack 설정!!!</h1>
 //     `
 // });
+console.log("실행 테스트");
+

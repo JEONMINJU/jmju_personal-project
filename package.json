@@ -1,11 +1,11 @@
 {
   "name": "jmju_personal-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "환경세팅 테스트",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "cross-env webpack --mode=production",
+    "watch": "cross-env webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^0.5.0",

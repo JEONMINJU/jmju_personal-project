@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// import {test} from '../js/test';\n\n// window.addEventListener('DOMContentLoaded', () => {\n//     const el = document.querySelector(\"#mj\");\n//     const minju = \"민 주\"\n\n//     el.innerHTML = `\n//         <h1>${test(minju, 123)} webpack 설정!!!</h1>\n//     `\n// });\n\n//# sourceURL=webpack:///./src/dist/js/app.js?");
+eval("// import {test} from '../js/test';\n\n// window.addEventListener('DOMContentLoaded', () => {\n//     const el = document.querySelector(\"#mj\");\n//     const minju = \"민 주\"\n\n//     el.innerHTML = `\n//         <h1>${test(minju, 123)} webpack 설정!!!</h1>\n//     `\n// });\nconsole.log(\"실행 테스트\");\n\n//# sourceURL=webpack:///./src/dist/js/app.js?");
 
 /***/ }),
 

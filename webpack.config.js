@@ -4,6 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
+    // 개발서버 설정
+    devServer: {
+        port: 8080,
+        contentBase: path.resolve(__dirname, './src'), // 웹서버가 주시할 디렉토리 설정
+    },
     // 시작점
     entry : {
         'assets/js/main' : ['./src/dist/js/app.js', './src/dist/scss/app.scss']
