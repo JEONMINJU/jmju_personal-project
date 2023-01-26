@@ -249,8 +249,14 @@
     resize: none;
     -webkit-border-radius: 0;
     -webkit-appearance: none;
-    border-radius: 0;
+    border-radius: 8px;
+    background: $colorfff;
+    color: $color111;
     text-indent: 0;
+ 
+    &::placeholder {
+        color: $color999;
+    }
   }
   
   details {

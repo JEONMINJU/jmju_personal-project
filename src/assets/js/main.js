@@ -90,10 +90,23 @@
 /*!****************************!*\
   !*** ./src/dist/js/app.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("// import {test} from '../js/test';\n\n// window.addEventListener('DOMContentLoaded', () => {\n//     const el = document.querySelector(\"#mj\");\n//     const minju = \"민 주\"\n\n//     el.innerHTML = `\n//         <h1>${test(minju, 123)} webpack 설정!!!</h1>\n//     `\n// });\nconsole.log(\"실행 테스트\");\n\n//# sourceURL=webpack:///./src/dist/js/app.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _divide_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./divide/layout */ \"./src/dist/js/divide/layout.js\");\n// import {test} from '../js/test';\n\n// window.addEventListener('DOMContentLoaded', () => {\n//     const el = document.querySelector(\"#mj\");\n//     const minju = \"민 주\"\n\n//     el.innerHTML = `\n//         <h1>${test(minju, 123)} webpack 설정!!!</h1>\n//     `\n// });\n\n\n/**\r\n * Created by jmju on 2023-01-26.\r\n */\n\n\n\nconst appMethods = {\n    layout: _divide_layout__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n};\n\nconst appInit = () => {\n    const appName = document.querySelector('body');\n    console.log(appName);\n\n    if (appName) {\n        [_divide_layout__WEBPACK_IMPORTED_MODULE_0__[\"default\"], appMethods[appName]].forEach(method => {\n            if (method) method();\n\n            console.log(method);\n        });\n    }\n};\n\ndocument.addEventListener('DOMContentLoaded', () => {\n    appInit();\n});\n\n//# sourceURL=webpack:///./src/dist/js/app.js?");
+
+/***/ }),
+
+/***/ "./src/dist/js/divide/layout.js":
+/*!**************************************!*\
+  !*** ./src/dist/js/divide/layout.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/**\r\n * Created by jmju on 2023-01-26.\r\n */\nconst layout = () => {\n\n    /* 댓글 이벤트 */\n    const commentEvent = () => {};\n\n    const layout_init = () => {\n        commentEvent();\n    };\n\n    layout_init();\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (layout);\n\n//# sourceURL=webpack:///./src/dist/js/divide/layout.js?");
 
 /***/ }),
 
