@@ -22,3 +22,4 @@
 # 참고
 - 꼭 --hot 옵션을 주지 않아도 
 - "watch": "cross-env webpack --watch --mode=development" 여기 명령문에 "--watch" 추가하니깐 자동 반영 된다.? 
+- [hash]는 웹팩 컴파일 시 랜덤한 문자열을 붙여준다.

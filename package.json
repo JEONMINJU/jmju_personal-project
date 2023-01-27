@@ -4,8 +4,9 @@
   "description": "환경세팅 테스트",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env webpack --mode=production",
-    "watch": "cross-env webpack --watch --mode=development"
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",

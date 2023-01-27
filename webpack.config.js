@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
+    // mode: 'production',
+
     // 개발서버 설정
     devServer: {
         port: 8080,
@@ -20,6 +22,7 @@ module.exports = {
     },
     module: {
         rules: [
+            //js
             {
                 test:/\.js$/,
                 exclude: /node_modules/, // babel-loader에서는 제외되지 않기 때문에 추가(webpack5이상은 다를수도..)
@@ -27,22 +30,22 @@ module.exports = {
                     loader: 'babel-loader',
                 }
             },
+            //css
             {
                 test : /\.(css|scss|sass)$/,
-                // use : ['style-loader','css-loader']
                 use : [
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                     },
                     {
-                        loader: 'sass-loader', // sass 파일을 css로 컴파일
+                        loader: 'sass-loader',
                         options: {
                             outputStyle: 'expanded', // 컴파일 된 css 파일 확장하여 보이기
                             // outputStyle: 'compressed', // 컴파일 된 css 파일 압축
                             sourceMap: true, // 배포용으로 빌드한 파일과 원본파일을 연결 시켜줌(개발자도구에서 파일의 출처를 알 수 있다.)
                         },
-                    }
+                    },
                 ]
             },
             //이미지
@@ -67,8 +70,9 @@ module.exports = {
                     esModule: false,
                 }
             },
-        ]
+        ],
     },
+    // 생성자 함수로 생성한 객체 인스턴스만 추가 가능
     plugins: [
         // new CleanWebpackPlugin(), // 이전 빌드 파일들 모두 삭제 시켜줌(최신만 남기고 알아서 정리해줌)
         new MiniCssExtractPlugin(
