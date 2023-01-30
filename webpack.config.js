@@ -36,26 +36,30 @@ module.exports = {
                 // /시작 , ()그룹 , |또는 , /종료  .js로 끝나는 확장자
                 // module.rules.test : 로더를 적용할 파일 유형, 변환 할 파일 지정(일반적으로 정규표현식 사용)
 
-                // loader가 실행될 때 배제시킬 파일들을 명시, babel-loader에서는 제외되지 않기 때문에 추가(webpack5이상은 다를수도..)
+                // loader가 실행될 때 배제시킬 파일들을 명시, 노드모듈 외에 다른 폴더, 파일등 제외하고 싶을때 사용법 - 배열?
                 exclude: [
                     /node_modules/,
+                    /test/,
                 ],
 
-                // 노드모듈 외에 다른 폴더, 파일등 제외하고 싶을때 사용법
-                
                 // 해당 파일에 적용할 로더의 이름
                 use : {
-                    loader: 'babel-loader', // 외에 다른 로더 추가 가능한지, 종류
+                    loader: 'babel-loader',
                 }
             },
             //css
             {
                 test : /\.(css|scss|sass)$/, // 정규식 분석
                 use : [
-                    MiniCssExtractPlugin.loader,
+                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    
                     // 순서
                     {
                         loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1 // 0 은 no loaders(default)
+                        },
                     },
                     {
                         loader: 'sass-loader', // 배포,개발 조건 추가, 옵션 안썼을때 디폴트 적용 형식 어떤거?

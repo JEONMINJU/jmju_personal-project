@@ -510,7 +510,7 @@ details summary::-webkit-details-marker {
   line-height: 56px;
   font-weight: 600;
   color: #e8bf60;
-  border: 2px solid red;
+  border: 2px solid blue;
 }
 
 .mj__container__img img {
@@ -572,5 +572,3 @@ details summary::-webkit-details-marker {
   font-weight: 600;
 }
 
-
-/*# sourceMappingURL=main.css.map*/

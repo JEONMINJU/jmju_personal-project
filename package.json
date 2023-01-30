@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "watch": "cross-env NODE_ENV=development webpack --watch --mode development",
+    "watch": "cross-env NODE_ENV=production webpack --watch --mode production",
     "build": "cross-env NODE_ENV=production webpack --mode production"
   },
   "repository": {
@@ -31,7 +31,7 @@
     "node_env": "0.0.3",
     "npm": "^6.7.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^3.3.1",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14"

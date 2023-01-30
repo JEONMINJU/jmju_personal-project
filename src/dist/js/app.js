@@ -13,11 +13,9 @@
  */
 
 import layout from './divide/layout';
-import exclude from './exclude/exclude';
 
 const appMethods = {
     layout,
-    exclude,
 };
 
 const appInit = () => {
@@ -25,7 +23,7 @@ const appInit = () => {
     console.log(appName)
     
     if (appName) {
-        [layout,exclude, appMethods[appName]].forEach(method => {
+        [layout, appMethods[appName]].forEach(method => {
             if(method) method();
 
             console.log(method)
