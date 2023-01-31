@@ -27,7 +27,7 @@ const layout = () => {
             const _commentText = textArea.value;
             appendList(_commentText);
 
-            console.log(textArea.value)
+            textArea.value = "";
         }
 
         /* 등록 버튼 클릭 */
