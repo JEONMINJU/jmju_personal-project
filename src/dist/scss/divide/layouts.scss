@@ -23,14 +23,6 @@
         height: 500px;
         
         &__inner {
-            span {
-                position: relative;
-                display: block;
-                margin-top: 20px;
-                @include useFont(40, 600);
-                color: rgb(232, 191, 96);
-                border: 2px solid blue;
-            }
         }
 
         &__img {
@@ -46,12 +38,12 @@
     }
 
     &__comment {
-        margin-bottom: 20px;
+        margin: 20px 0;
 
         .comment {
             &__form {
                 position: relative;
-                margin-top: 10px;
+                margin-top: 20px;
 
                 textarea {
                     width: 100%;
@@ -72,13 +64,10 @@
             }
 
             &__byte {
-                
                 &__current {
-
                 }
 
                 &__limit {
-                    
                 }
             }
 
@@ -88,6 +77,23 @@
                 background: $color666;
                 border-radius: 4px;
                 color: $colorfff;
+                cursor: pointer;
+            }
+
+            &__view {
+            }
+
+            &__box {
+                
+                li {
+                    padding: 20px;
+                    border-bottom: 1px solid $coloreee;
+                }
+
+                span {
+                    color: $color666;
+                    @include useFont(16, 600);
+                }
             }
         }
     }

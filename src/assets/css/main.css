@@ -502,17 +502,6 @@ details summary::-webkit-details-marker {
   height: 500px;
 }
 
-.mj__container__inner span {
-  position: relative;
-  display: block;
-  margin-top: 20px;
-  font-size: 40px;
-  line-height: 56px;
-  font-weight: 600;
-  color: #e8bf60;
-  border: 2px solid blue;
-}
-
 .mj__container__img img {
   position: absolute;
   top: 0;
@@ -523,12 +512,12 @@ details summary::-webkit-details-marker {
 }
 
 .mj__comment {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .mj__comment .comment__form {
   position: relative;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .mj__comment .comment__form textarea {
@@ -554,6 +543,19 @@ details summary::-webkit-details-marker {
   background: #666;
   border-radius: 4px;
   color: #fff;
+  cursor: pointer;
+}
+
+.mj__comment .comment__box li {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.mj__comment .comment__box span {
+  color: #666;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
 }
 
 .mj__footer {

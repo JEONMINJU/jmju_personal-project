@@ -25,8 +25,6 @@ const appInit = () => {
     if (appName) {
         [layout, appMethods[appName]].forEach(method => {
             if(method) method();
-
-            console.log(method)
         });
     }
 };

@@ -32,9 +32,8 @@ module.exports = {
         rules: [
             //js
             {
-                test:/\.js$/,
-                // /시작 , ()그룹 , |또는 , /종료  .js로 끝나는 확장자
                 // module.rules.test : 로더를 적용할 파일 유형, 변환 할 파일 지정(일반적으로 정규표현식 사용)
+                test:/\.js$/,
 
                 // loader가 실행될 때 배제시킬 파일들을 명시, 노드모듈 외에 다른 폴더, 파일등 제외하고 싶을때 사용법 - 배열?
                 exclude: [
@@ -49,8 +48,9 @@ module.exports = {
             },
             //css
             {
-                test : /\.(css|scss|sass)$/, // 정규식 분석
+                test : /\.(css|scss|sass)$/,
                 use : [
+                    // 배포,개발 분리하여 로더 적용
                     process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     
                     // 순서
@@ -62,7 +62,8 @@ module.exports = {
                         },
                     },
                     {
-                        loader: 'sass-loader', // 배포,개발 조건 추가, 옵션 안썼을때 디폴트 적용 형식 어떤거?
+                        loader: 'sass-loader',  
+                        // 옵션 안썼을때 디폴트 적용 형식 어떤거?
                         options: {
                             outputStyle: 'expanded', // 컴파일 된 css 파일 확장하여 보이기
                             // outputStyle: 'compressed', // 컴파일 된 css 파일 압축

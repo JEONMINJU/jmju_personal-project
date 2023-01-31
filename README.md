@@ -28,3 +28,6 @@
 - "watch": "cross-env webpack --watch --mode=development" 여기 명령문에 "--watch" 추가하니깐 자동 반영 된다.? 
 - [hash]는 웹팩 컴파일 시 랜덤한 문자열을 붙여준다.
 - css-loader는 css 파일을 읽는 역할을 하고 style-loader는 읽은 css 파일을 html 파일에 넣어주는 역할을 합니다
+
+# .map 
+- 파일은 소스맵이 적용될 때 컴파일 된다.

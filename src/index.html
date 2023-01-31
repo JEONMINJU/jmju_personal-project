@@ -22,33 +22,41 @@
     <section id="container" class="mj__section mj__container">
         <h2 class="mj__title--hidden">메인 컨테이너</h2>
 
+
         <div class="mj__container__inner">
             <figure class="mj__container__img">
-                <!-- <img src="/src/images/webpack-test.jpeg" alt="메인이미지"> -->
+                <img src="/src/images/webpack-test.jpeg" alt="메인이미지">
             </figure>
-            <span class="test__text">sass 테스트</span>
+            <span class="test__text"></span>
         </div>
     </section>
 
     <!-- add comment -->
     <section class="mj__section mj__comment">
-        <h2 class="mj__comment__title">입력</h2>
+        <h2 class="mj__comment__title">댓글을 입력해주세요.</h2>
 
         <!-- 입력 -->
-        <form class="comment__form">
-            <textarea id="js__comment__textarea" name="comment__textarea" placeholder="입력해주세요." maxlength="100"></textarea>
+        <div class="comment__write">
+            <form class="comment__form">
+                <textarea id="js__comment__textarea" name="comment__textarea" placeholder="입력해주세요." maxlength="100"></textarea>
+        
+                <!-- 글자수/등록버튼 -->
+                <div class="comment__bottom">
+                    <span class="comment__byte">
+                        <span class="comment__byte__current" id="js__comment__byte">0</span>
+                        <span class="comment__byte__limit">/ 100</span>
+                    </span>
     
-            <!-- 글자수/등록버튼 -->
-            <div class="comment__bottom">
-                <span class="comment__byte">
-                    <span class="comment__byte__current js__comment__byte">0</span>
-                    <span class="comment__byte__limit">/ 100</span>
-                </span>
+                    <!-- 등록 -->
+                    <button type="button" class="comment__register" id="submit">등록</button>
+                </div>
+            </form>
+        </div>
 
-                <!-- 등록 -->
-                <button type="submit" class="comment__register">등록</button>
-            </div>
-        </form>
+        <!-- 리스트 -->
+        <div class="comment__view">
+            <ul class="comment__box js__comment__box"></ul>
+        </div>
     </section>
   
     <!-- footer -->
