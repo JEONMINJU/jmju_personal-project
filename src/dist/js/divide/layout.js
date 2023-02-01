@@ -39,14 +39,17 @@ const layout = () => {
     /* 상단 스토리 리스트 클릭 */
     const storiesEvent = () => {
         const $storyList = document.querySelectorAll(".js__stories__list");
-        const $contentWrapper = document.querySelectorAll(".mj__container__wrapper .mj__container__inner");
+        const $contentWrapper = document.querySelectorAll(".js__container__wrapper .js__container__inner");
         
         for(let i = 0; i < $storyList.length; i++) {
             $storyList[i].addEventListener("click", function() {
+                
                 /* 전체 remove on */
                 $contentWrapper.forEach(element => {
                     element.classList.remove("on");
                 });
+                
+                /* addClass on */
                 $contentWrapper[i].classList.add("on");
             });
         };
