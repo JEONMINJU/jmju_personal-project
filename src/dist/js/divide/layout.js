@@ -1,6 +1,8 @@
 /**
  * Created by jmju on 2023-01-26.
  */
+const moment = require("moment");
+
 const layout = () => {
     /* 댓글 이벤트 */
     const commentEvent = () => {
@@ -12,7 +14,7 @@ const layout = () => {
         $textArea.addEventListener('input', (event) => {
             $currentText.innerText = event.target.value.length;
         });
-
+       
         /* 리스트 delete */
         function deleteList(event) {
             const list = event.target.parentElement;
@@ -21,15 +23,23 @@ const layout = () => {
 
         /* 리스트 append */
         function appendList(_commentText) {
+            /* 댓글 작성 날짜 구하기 */
+            const date = moment();
+            const nowDate = date.format("YYYY.MM.DD HH:mm:ss");
+
+            /* 리스트 태그 생성 */
             const li = document.createElement("li");
-            const span = document.createElement("span");
-            const deleteButton = document.createElement("button")
+            const content = document.createElement("p");
+            const deleteButton = document.createElement("button");
+            const writeDate = document.createElement("span");
             
-            span.innerHTML = _commentText;
+            writeDate.innerHTML = nowDate;
+            content.innerHTML = _commentText;
             deleteButton.innerText = "X";
             deleteButton.addEventListener("click", deleteList);
 
-            li.prepend(span);
+            li.prepend(writeDate);
+            li.prepend(content);
             li.prepend(deleteButton);
             $commentBox.prepend(li);
         }
