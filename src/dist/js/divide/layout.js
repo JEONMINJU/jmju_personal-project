@@ -13,13 +13,25 @@ const layout = () => {
             $currentText.innerText = event.target.value.length;
         });
 
+        /* 리스트 delete */
+        function deleteList(event) {
+            const list = event.target.parentElement;
+            list.remove();
+        }
+
         /* 리스트 append */
         function appendList(_commentText) {
             const li = document.createElement("li");
             const span = document.createElement("span");
+            const deleteButton = document.createElement("button")
+            
             span.innerHTML = _commentText;
-            li.appendChild(span);
-            $commentBox.appendChild(li);
+            deleteButton.innerText = "X";
+            deleteButton.addEventListener("click", deleteList);
+
+            li.prepend(span);
+            li.prepend(deleteButton);
+            $commentBox.prepend(li);
         }
 
         /* 텍스트 value */

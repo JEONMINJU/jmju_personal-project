@@ -148,8 +148,8 @@
             }
 
             &__box {
-                
                 li {
+                    position: relative;
                     padding: 20px;
                     border-bottom: 1px solid $coloreee;
                 }
@@ -157,6 +157,18 @@
                 span {
                     color: $color666;
                     @include useFont(16, 600);
+                }
+
+                button {
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid red;
+                    color: $color111;
+                    @include useFont(16, 600); 
+                    transform: translateY(-50%);
                 }
             }
         }

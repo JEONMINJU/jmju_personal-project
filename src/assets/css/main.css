@@ -603,6 +603,7 @@ details summary::-webkit-details-marker {
 }
 
 .mj__comment .comment__box li {
+  position: relative;
   padding: 20px;
   border-bottom: 1px solid #eee;
 }
@@ -612,6 +613,20 @@ details summary::-webkit-details-marker {
   font-size: 16px;
   line-height: 22px;
   font-weight: 600;
+}
+
+.mj__comment .comment__box button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid red;
+  color: #111;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  transform: translateY(-50%);
 }
 
 .mj__footer {
