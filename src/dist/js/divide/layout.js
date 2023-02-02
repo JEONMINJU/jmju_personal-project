@@ -25,7 +25,13 @@ const layout = () => {
         /* 텍스트 value */
         function getTextValue() {
             const _commentText = $textArea.value;
-            appendList(_commentText);
+
+            /* 빈값 체크 */
+            if (_commentText != "" && _commentText.length < 100) {
+                appendList(_commentText);
+            } else {
+                alert("텍스트를 1 ~ 100자 이하로 입력해주세요 뭐든, ,")
+            }
 
             $textArea.value = "";
         }
@@ -48,7 +54,7 @@ const layout = () => {
                 $contentWrapper.forEach(element => {
                     element.classList.remove("on");
                 });
-                
+
                 /* addClass on */
                 $contentWrapper[i].classList.add("on");
             });
