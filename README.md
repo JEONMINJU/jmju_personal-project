@@ -31,3 +31,14 @@
 
 # .map 
 - 파일은 소스맵이 적용될 때 컴파일 된다.
+
+# 자바스크립트
+- 함수선언문
+function hellowTest(a, b) {
+    return a + b;
+};
+
+- 함수표현식
+const hellowTest = function(a, b) {
+    return a + b;
+};
