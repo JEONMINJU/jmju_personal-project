@@ -66,7 +66,6 @@
   src: local("Pretendard Black"), url(../../Pretendard-Black.woff2) format("woff2"), url(../../Pretendard-Black.woff) format("woff");
 }
 
-/* 폰트 */
 /**
 * Created by jmju on 2023.01.25
 * [Reset SCSS]
@@ -615,10 +614,20 @@ details summary::-webkit-details-marker {
 }
 
 .mj__comment .comment__box p {
+  padding-right: 40px;
   color: #111;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+  /* 사용법 : @include line(라인수) */
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-line-clamp: 2;
 }
 
 .mj__comment .comment__box span {

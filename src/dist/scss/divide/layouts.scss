@@ -157,8 +157,10 @@
                 }
 
                 p {
+                    padding-right: 40px;
                     color: $color111;
                     @include useFont(18, 400);
+                    @include line(2);
                 }
 
                 span {

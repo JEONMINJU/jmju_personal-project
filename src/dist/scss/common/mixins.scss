@@ -1,4 +1,4 @@
-/* 폰트 */
+// #region 폰트
 @mixin useFont($size, $fontWeight:400) {
     @if ($size == 44) {
       font-size: 44px;
@@ -81,3 +81,24 @@
         font-weight: 400;
     }
 }
+// #endregion
+
+// #region 말줄임 후략
+  @mixin line($lineCount: 1) {
+    /* 사용법 : @include line(라인수) */
+    @if ($lineCount == 1) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    } @else {
+        /* autoprefixer: ignore next */
+        -webkit-box-orient: vertical;
+        display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-line-clamp: $lineCount;
+    }
+}
+// #endregion
