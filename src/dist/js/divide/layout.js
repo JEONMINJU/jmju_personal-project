@@ -79,7 +79,7 @@ const layout = () => {
             if (_commentText != "" && _commentText.length < 100) {
                 appendList(object);
             } else {
-                alert("텍스트를 1 ~ 100자 이하로 입력해주세요 뭐든, ,")
+                alert("텍스트를 1 ~ 100자 이하로 입력해주세요.");
             }
             saveComments();//로컬스토리지 저장
         };
