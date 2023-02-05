@@ -42,3 +42,7 @@ function hellowTest(a, b) {
 const hellowTest = function(a, b) {
     return a + b;
 };
+
+# filter vs map
+- map은 새로운 배열 반환
+- filter는 테스트를 통과하는? 걸러주는 값과 같은 것을 제외한 새로운 배열을 반환해준다.
