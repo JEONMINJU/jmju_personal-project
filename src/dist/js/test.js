@@ -18,5 +18,11 @@ const searchSample = [
         type: '불독',
         url: '/src/images/webpack-test2.jpg'
     },
+    {
+        id: 4,
+        name: '포이',
+        type: '믹스',
+        url: '/src/images/webpack-test3.jpg'
+    },
 ];
 

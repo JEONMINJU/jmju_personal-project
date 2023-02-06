@@ -21916,18 +21916,17 @@ const layout = () => {
         const searchInput = document.getElementById("search");
         const searchBtn = document.getElementById("searchBtn");
 
-        function showList(val = "") {
+        const showList = (_searchValue = "") => {
             storiesBox.innerHTML = "";
             const storiesArr = searchSample.forEach(test => {
-                if (test.name.includes(val)) {
+                if (test.name.includes(_searchValue)) {
                     const storiesList = document.createElement("li");
+                    storiesList.className = 'stories__list js__stories__list';
                     storiesList.innerHTML = `
-                        <li class="stories__list js__stories__list">
-                            <figure class="stories__img">
-                                <img src='${test.url}' alt="">
-                            </figure>
-                            <p class="stories__name">${test.name}</p>
-                        </li>
+                        <figure class="stories__img">
+                            <img src='${test.url}' alt="">
+                        </figure>
+                        <p class="stories__name">${test.name}</p>
                     `;
                     storiesBox.appendChild(storiesList);
                 }
@@ -21936,11 +21935,26 @@ const layout = () => {
 
         showList(); //기본실행
 
-        searchBtn.addEventListener("click", () => {
-            const val = searchInput.value;
+        searchBtn.addEventListener("click", e => {
+            e.preventDefault();
 
-            showList(val);
+            let _searchValue = searchInput.value;
+            showList(_searchValue);
+
+            searchInput.value = "";
+
+            console.log("검색어 : ", _searchValue);
         });
+
+        /* 키보드 엔터시 */
+        searchInput.addEventListener("keyup", function (e) {
+            if (event.keyCode === 13) {
+                e.preventDefault();
+                searchBtn.click();
+            }
+        });
+
+        /* 검색어 입력시 리셋버튼 노출 */
     };
 
     /* 댓글 이벤트 */
