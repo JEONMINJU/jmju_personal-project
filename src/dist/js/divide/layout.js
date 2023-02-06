@@ -9,6 +9,7 @@ const layout = () => {
         const storiesBox = document.getElementById("js__stories__box");
         const searchInput = document.getElementById("search");
         const searchBtn = document.getElementById("searchBtn");
+        const searchReset = document.getElementById("searchReset");
 
         const showList = (_searchValue ="") => {
             storiesBox.innerHTML = "";
@@ -29,6 +30,7 @@ const layout = () => {
 
         showList();//기본실행
 
+        /* 검색 버튼 클릭시 */
         searchBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
@@ -46,9 +48,40 @@ const layout = () => {
                 e.preventDefault();
                 searchBtn.click();
             }
+     
+            /* 검색어 입력시 리셋버튼 노출 */
+            if (searchInput.value.length > 1) {
+                searchReset.classList.add("show");
+            } else {
+                searchReset.classList.remove("show");
+            }
         });
 
-        /* 검색어 입력시 리셋버튼 노출 */
+        /* 리셋 버튼 클릭시 */
+        searchReset.addEventListener("click", function(e) {
+            e.preventDefault();
+            searchInput.value = "";
+            searchReset.classList.remove("show");
+        });
+    };
+
+    /* 상단 스토리 리스트 클릭 */
+    const storiesEvent = () => {
+        const $storyList = document.querySelectorAll(".js__stories__list");
+        const $contentWrapper = document.querySelectorAll(".js__container__wrapper .js__container__inner");
+        
+        for(let i = 0; i < $storyList.length; i++) {
+            $storyList[i].addEventListener("click", function() {
+                console.log("클릭", i)
+                /* 전체 remove on */
+                $contentWrapper.forEach(element => {
+                    element.classList.remove("on");
+                });
+
+                /* addClass on */
+                $contentWrapper[i].classList.add("on");
+            });
+        };
     };
 
     /* 댓글 이벤트 */
@@ -155,29 +188,10 @@ const layout = () => {
         });    
     };
 
-    /* 상단 스토리 리스트 클릭 */
-    const storiesEvent = () => {
-        const $storyList = document.querySelectorAll(".js__stories__list");
-        const $contentWrapper = document.querySelectorAll(".js__container__wrapper .js__container__inner");
-        
-        for(let i = 0; i < $storyList.length; i++) {
-            $storyList[i].addEventListener("click", function() {
-                console.log("클릭", i)
-                /* 전체 remove on */
-                $contentWrapper.forEach(element => {
-                    element.classList.remove("on");
-                });
-
-                /* addClass on */
-                $contentWrapper[i].classList.add("on");
-            });
-        };
-    };
-
     const layout_init = () => {
         searchEvent();
-        commentEvent();
         storiesEvent();
+        commentEvent();
     };
 
     layout_init();

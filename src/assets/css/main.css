@@ -526,6 +526,47 @@ details summary::-webkit-details-marker {
   cursor: pointer;
 }
 
+.mj__header__search .search__reset {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ddd;
+  font-size: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.mj__header__search .search__reset:before {
+  content: "";
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  transform: rotate(-45deg);
+  background: #fff;
+}
+
+.mj__header__search .search__reset:after {
+  content: "";
+  position: absolute;
+  top: 27%;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  transform: rotate(45deg);
+  background: #fff;
+}
+
+.mj__header__search .search__reset.show {
+  display: block;
+}
+
 .mj__section {
   max-width: 1280px;
   margin: 0 auto;
