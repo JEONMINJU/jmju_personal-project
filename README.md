@@ -46,3 +46,16 @@ const hellowTest = function(a, b) {
 # filter vs map
 - map은 새로운 배열 반환
 - filter는 테스트를 통과하는? 걸러주는 값과 같은 것을 제외한 새로운 배열을 반환해준다.
+
+# ES6 화살표 함수
+- this는 window가 아닌 상위 함수가 this를 가르킴
+- 반대로 그냥 function의 this는 항상 window
+
+# 로컬스토리지(localStorage)
+- 사용자가 지우지 않는 이상 계속 브라우저에 남아있는다. 지속적으로 필요한 데이터 저장(자동로그인 등)
+
+# 세션스토리지(sessionStorage)
+- 윈도우나 브라우저를 닫을 경우 제거된다. 일회성 정보 저장용
+
+# 쿠키(cookie)
+- 만료 기한이 있는 저장소

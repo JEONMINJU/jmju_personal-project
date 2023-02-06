@@ -9,21 +9,45 @@
 
         &__inner {
             position: relative;
+            display: flex;
+            align-items: center;
             width: 100%;
-            color: $color666;
-            @include useFont(30, 600);
+            height: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         &__search {
             position: absolute;
             top: 50%;
             right: 20px;
-            width: 48px;
-            height: 48px;
-            background: url(/src/images/ico_header_search.png) no-repeat 0 0;
             transform: translateY(-50%);
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+            .search {
+                &__input {
+                    width: 500px;
+                    height: 60px;
+                    padding-left: 20px;
+                    border-radius: 8px;
+                    color: $color666;
+                    @include useFont(16, 400);
+                }
+
+                &__button {
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    width: 48px;
+                    height: 48px;
+                    background: url(/src/images/ico_header_search.png) no-repeat 0 0;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+        }
     }
 
     /* 공통 섹션 */
@@ -45,17 +69,20 @@
                 }
 
                 &__list {
-                    position: relative;
-                    overflow: hidden;
                     width: 70px;
-                    height: 70px;
                     margin: 0 10px;
-                    border-radius: 50%;
-                    border: 2px solid red;
+                    text-align: center;
                     cursor: pointer;
                 }
 
                 &__img {
+                    position: relative;
+                    width: 70px;
+                    height: 70px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    border: 2px solid red;
+
                     img {
                         position: absolute;
                         top: 50%;
@@ -66,6 +93,11 @@
                         object-fit: cover;
                         transform: translate(-50%, -50%);
                     }
+                }
+
+                &__name {
+                    display: block;
+                    margin-top: 8px;
                 }
             }
         }
@@ -157,6 +189,7 @@
                 }
 
                 p {
+                    display: block;
                     padding-right: 40px;
                     color: $color111;
                     @include useFont(18, 400);
@@ -182,6 +215,17 @@
                     cursor: pointer;
                 }
             }
+
+            &__button {
+             
+            }
+
+            &__more {
+                display: none;
+                color: $color666;
+                @include useFont(16, 400);
+                cursor: pointer;
+            } 
         }
     }
 

@@ -486,14 +486,36 @@ details summary::-webkit-details-marker {
 
 .mj__header__inner {
   position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  color: #666;
-  font-size: 30px;
-  line-height: 26px;
-  font-weight: 600;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .mj__header__search {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mj__header__search .search__input {
+  width: 500px;
+  height: 60px;
+  padding-left: 20px;
+  border-radius: 8px;
+  color: #666;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.mj__header__search .search__button {
   position: absolute;
   top: 50%;
   right: 20px;
@@ -501,6 +523,7 @@ details summary::-webkit-details-marker {
   height: 48px;
   background: url(/src/images/ico_header_search.png) no-repeat 0 0;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .mj__section {
@@ -522,14 +545,19 @@ details summary::-webkit-details-marker {
 }
 
 .mj__container__stories .stories__list {
+  width: 70px;
+  margin: 0 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mj__container__stories .stories__img {
   position: relative;
-  overflow: hidden;
   width: 70px;
   height: 70px;
-  margin: 0 10px;
+  overflow: hidden;
   border-radius: 50%;
   border: 2px solid red;
-  cursor: pointer;
 }
 
 .mj__container__stories .stories__img img {
@@ -541,6 +569,11 @@ details summary::-webkit-details-marker {
   border-radius: 50%;
   object-fit: cover;
   transform: translate(-50%, -50%);
+}
+
+.mj__container__stories .stories__name {
+  display: block;
+  margin-top: 8px;
 }
 
 .mj__container__wrapper {
@@ -614,6 +647,7 @@ details summary::-webkit-details-marker {
 }
 
 .mj__comment .comment__box p {
+  display: block;
   padding-right: 40px;
   color: #111;
   font-size: 18px;
@@ -650,6 +684,15 @@ details summary::-webkit-details-marker {
   line-height: 22px;
   font-weight: 600;
   transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.mj__comment .comment__more {
+  display: none;
+  color: #666;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
   cursor: pointer;
 }
 
