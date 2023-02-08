@@ -21909,6 +21909,8 @@ var _this = undefined;
  */
 const moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
+console.log("git push test");
+
 const layout = () => {
     /* 상단 검색 */
     const searchEvent = () => {

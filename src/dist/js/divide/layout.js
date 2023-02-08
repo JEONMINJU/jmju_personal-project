@@ -3,6 +3,8 @@
  */
 const moment = require("moment");
 
+console.log("git push test");
+
 const layout = () => {
     /* 상단 검색 */
     const searchEvent = () => {
