@@ -1,7 +1,7 @@
 /**
  * Created by jmju on 2023-01-26.
  */
-const moment = require("moment");
+const dayjs = require("dayjs");
 
 console.log("git push test");
 
@@ -157,7 +157,7 @@ const layout = () => {
             const object = {
                 id : commentId,
                 comment : _commentText,
-                date : moment().format("YYYY.MM.DD HH:mm:ss"),
+                date : dayjs().format("YYYY.MM.DD HH:mm:ss"),
             }
             
             commentArray.push(object);
@@ -185,7 +185,6 @@ const layout = () => {
 
         /* 등록 버튼 클릭 */
         $submitButton.addEventListener("click", () => {
-            console.log(this, "화살표함수안 this ")
             handleSubmit();
         });    
     };
