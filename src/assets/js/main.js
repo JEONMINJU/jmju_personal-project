@@ -21873,23 +21873,69 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const appMethods = {
-    layout: _divide_layout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  layout: _divide_layout__WEBPACK_IMPORTED_MODULE_0__["default"]
 };
 
 const appInit = () => {
-    const appName = document.querySelector('body');
-    console.log(appName);
+  const appName = document.querySelector("body");
+  console.log(appName);
 
-    if (appName) {
-        [_divide_layout__WEBPACK_IMPORTED_MODULE_0__["default"], appMethods[appName]].forEach(method => {
-            if (method) method();
-        });
-    }
+  if (appName) {
+    [_divide_layout__WEBPACK_IMPORTED_MODULE_0__["default"], appMethods[appName]].forEach(method => {
+      if (method) method();
+    });
+  }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    appInit();
+document.addEventListener("DOMContentLoaded", () => {
+  appInit();
 });
+
+/***/ }),
+
+/***/ "./src/dist/js/divide/api.js":
+/*!***********************************!*\
+  !*** ./src/dist/js/divide/api.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// import config from "../divide/config";
+
+// const BASE_URL = config.api_base_url;
+// const API_KEY = config.api_key;
+
+// export async function getMovie() {
+//   let data = [];
+//   try {
+//     const response = await fetch(
+//       `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${page}`
+//     );
+//     const responseData = await response.json();
+//     data = responseData?.results;
+//   } catch (error) {}
+//   return data;
+// }
+
+// console.log("git push test", config.api_key);
+
+/***/ }),
+
+/***/ "./src/dist/js/divide/config.js":
+/*!**************************************!*\
+  !*** ./src/dist/js/divide/config.js ***!
+  \**************************************/
+/*! exports provided: config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
+const config = {
+  api_key: "23866a01cf06f69aa94e2bab3267a0a2",
+  api_base_url: "https://api.themoviedb.org/3/",
+  image_base_url: "https://image.tmdb.org/t/p/w1280"
+};
 
 /***/ }),
 
@@ -21897,11 +21943,15 @@ document.addEventListener('DOMContentLoaded', () => {
 /*!**************************************!*\
   !*** ./src/dist/js/divide/layout.js ***!
   \**************************************/
-/*! exports provided: default */
+/*! exports provided: renderMovies, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderMovies", function() { return renderMovies; });
+/* harmony import */ var _divide_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../divide/api.js */ "./src/dist/js/divide/api.js");
+/* harmony import */ var _divide_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_divide_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _divide_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../divide/config */ "./src/dist/js/divide/config.js");
 var _this = undefined;
 
 /**
@@ -21909,200 +21959,209 @@ var _this = undefined;
  */
 const moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
-console.log("git push test");
+const moviesDiv = document.getElementById("movies");
+
+
+
+
+async function renderMovies() {
+  const movies = await Object(_divide_api_js__WEBPACK_IMPORTED_MODULE_0__["getPopularMovies"])();
+  console.log(movies);
+  moviesDiv.innerHTML = movies;
+}
 
 const layout = () => {
-    /* 상단 검색 */
-    const searchEvent = () => {
-        const storiesBox = document.getElementById("js__stories__box");
-        const searchInput = document.getElementById("search");
-        const searchBtn = document.getElementById("searchBtn");
-        const searchReset = document.getElementById("searchReset");
+  /* 상단 검색 */
+  const searchEvent = () => {
+    const storiesBox = document.getElementById("js__stories__box");
+    const searchInput = document.getElementById("search");
+    const searchBtn = document.getElementById("searchBtn");
+    const searchReset = document.getElementById("searchReset");
 
-        const showList = (_searchValue = "") => {
-            storiesBox.innerHTML = "";
-            const storiesArr = searchSample.forEach(test => {
-                if (test.name.includes(_searchValue)) {
-                    const storiesList = document.createElement("li");
-                    storiesList.className = 'stories__list js__stories__list';
-                    storiesList.innerHTML = `
+    const showList = (_searchValue = "") => {
+      storiesBox.innerHTML = "";
+      const storiesArr = searchSample.forEach(test => {
+        if (test.name.includes(_searchValue)) {
+          const storiesList = document.createElement("li");
+          storiesList.className = "stories__list js__stories__list";
+          storiesList.innerHTML = `
                         <figure class="stories__img">
                             <img src='${test.url}' alt="">
                         </figure>
                         <p class="stories__name">${test.name}</p>
                     `;
-                    storiesBox.appendChild(storiesList);
-                }
-            });
-        };
-
-        showList(); //기본실행
-
-        /* 검색 버튼 클릭시 */
-        searchBtn.addEventListener("click", e => {
-            e.preventDefault();
-
-            let _searchValue = searchInput.value;
-            showList(_searchValue);
-
-            searchInput.value = "";
-
-            console.log("검색어 : ", _searchValue);
-        });
-
-        /* 키보드 엔터시 */
-        searchInput.addEventListener("keyup", function (e) {
-            if (event.keyCode === 13) {
-                e.preventDefault();
-                searchBtn.click();
-            }
-
-            /* 검색어 입력시 리셋버튼 노출 */
-            if (searchInput.value.length > 1) {
-                searchReset.classList.add("show");
-            } else {
-                searchReset.classList.remove("show");
-            }
-        });
-
-        /* 리셋 버튼 클릭시 */
-        searchReset.addEventListener("click", function (e) {
-            e.preventDefault();
-            searchInput.value = "";
-            searchReset.classList.remove("show");
-        });
+          storiesBox.appendChild(storiesList);
+        }
+      });
     };
 
-    /* 상단 스토리 리스트 클릭 */
-    const storiesEvent = () => {
-        const $storyList = document.querySelectorAll(".js__stories__list");
-        const $contentWrapper = document.querySelectorAll(".js__container__wrapper .js__container__inner");
+    showList(); //기본실행
 
-        for (let i = 0; i < $storyList.length; i++) {
-            $storyList[i].addEventListener("click", function () {
-                console.log("클릭", i);
-                /* 전체 remove on */
-                $contentWrapper.forEach(element => {
-                    element.classList.remove("on");
-                });
+    /* 검색 버튼 클릭시 */
+    searchBtn.addEventListener("click", e => {
+      e.preventDefault();
 
-                /* addClass on */
-                $contentWrapper[i].classList.add("on");
-            });
-        };
-    };
+      let _searchValue = searchInput.value;
+      showList(_searchValue);
 
-    /* 댓글 이벤트 */
-    const commentEvent = () => {
-        const $currentText = document.getElementById("js__comment__byte"); //입력된 텍스트
-        const $textArea = document.getElementById("js__comment__textarea"); //입력영역
-        const $commentBox = document.querySelector(".js__comment__box"); //댓글박스
-        const $submitButton = document.getElementById("submit"); //등록 버튼
-        const comment_KEY = "comments";
-        let commentArray = []; //빈배열 생성
+      searchInput.value = "";
 
-        $textArea.addEventListener('input', event => {
-            $currentText.innerText = event.target.value.length;
+      console.log("검색어 : ", _searchValue);
+    });
+
+    /* 키보드 엔터시 */
+    searchInput.addEventListener("keyup", function (e) {
+      if (event.keyCode === 13) {
+        e.preventDefault();
+        searchBtn.click();
+      }
+
+      /* 검색어 입력시 리셋버튼 노출 */
+      if (searchInput.value.length > 1) {
+        searchReset.classList.add("show");
+      } else {
+        searchReset.classList.remove("show");
+      }
+    });
+
+    /* 리셋 버튼 클릭시 */
+    searchReset.addEventListener("click", function (e) {
+      e.preventDefault();
+      searchInput.value = "";
+      searchReset.classList.remove("show");
+    });
+  };
+
+  /* 상단 스토리 리스트 클릭 */
+  const storiesEvent = () => {
+    const $storyList = document.querySelectorAll(".js__stories__list");
+    const $contentWrapper = document.querySelectorAll(".js__container__wrapper .js__container__inner");
+
+    for (let i = 0; i < $storyList.length; i++) {
+      $storyList[i].addEventListener("click", function () {
+        console.log("클릭", i);
+        /* 전체 remove on */
+        $contentWrapper.forEach(element => {
+          element.classList.remove("on");
         });
 
-        /* 등록된 댓글 저장 */
-        const saveComments = () => {
-            localStorage.setItem(comment_KEY, JSON.stringify(commentArray)); // 배열 저장
-        };
-        /* 함수선언식*/
-        // function saveComments() {
-        // };
+        /* addClass on */
+        $contentWrapper[i].classList.add("on");
+      });
+    }
+  };
 
-        /* 리스트 delete */
-        const deleteList = event => {
-            const list = event.target.parentElement;
-            list.remove();
+  /* 댓글 이벤트 */
+  const commentEvent = () => {
+    const $currentText = document.getElementById("js__comment__byte"); //입력된 텍스트
+    const $textArea = document.getElementById("js__comment__textarea"); //입력영역
+    const $commentBox = document.querySelector(".js__comment__box"); //댓글박스
+    const $submitButton = document.getElementById("submit"); //등록 버튼
+    const comment_KEY = "comments";
+    let commentArray = []; //빈배열 생성
 
-            /* 클릭한 버튼의  id값이랑 로컬에 저장된 id값이 같으면 배열에 넣지 않는다. */
-            const cleanArr = commentArray.filter(comment => comment.id !== parseInt(list.id));
+    $textArea.addEventListener("input", event => {
+      $currentText.innerText = event.target.value.length;
+    });
 
-            /* 필터로 만든 배열을 기본 배열에 다시 담아준다.  */
-            commentArray = cleanArr;
+    /* 등록된 댓글 저장 */
+    const saveComments = () => {
+      localStorage.setItem(comment_KEY, JSON.stringify(commentArray)); // 배열 저장
+    };
+    /* 함수선언식*/
+    // function saveComments() {
+    // };
 
-            /* 저장을 꼭 해줘야함..  */
-            saveComments();
+    /* 리스트 delete */
+    const deleteList = event => {
+      const list = event.target.parentElement;
+      list.remove();
 
-            console.log(list.id, cleanArr);
-        };
+      /* 클릭한 버튼의  id값이랑 로컬에 저장된 id값이 같으면 배열에 넣지 않는다. */
+      const cleanArr = commentArray.filter(comment => comment.id !== parseInt(list.id));
 
-        /* 리스트 append */
-        const appendList = object => {
-            /* 리스트 태그 생성 */
-            const li = document.createElement("li");
-            const writeDate = document.createElement("span");
-            const moreButton = document.createElement("span"); //더보기버튼
-            const deleteButton = document.createElement("button"); //삭제버튼
-            const content = document.createElement("span");
-            li.id = object.id;
+      /* 필터로 만든 배열을 기본 배열에 다시 담아준다.  */
+      commentArray = cleanArr;
 
-            moreButton.innerHTML = '<button class="comment__more js__comment__more">더보기</button>';
-            deleteButton.innerText = 'X';
-            deleteButton.addEventListener("click", deleteList);
-            writeDate.innerHTML = object.date;
-            content.innerHTML = '<p>' + object.comment + '</p>';
+      /* 저장을 꼭 해줘야함..  */
+      saveComments();
 
-            li.prepend(writeDate);
-            li.prepend(moreButton);
-            li.prepend(deleteButton);
-            li.prepend(content);
-            $commentBox.prepend(li);
-        };
-
-        /* 최종 서브밋 */
-        const handleSubmit = () => {
-            const commentId = commentArray.length;
-            const _commentText = $textArea.value; //text값 가져오기
-
-            $textArea.value = "";
-
-            const object = {
-                id: commentId,
-                comment: _commentText,
-                date: moment().format("YYYY.MM.DD HH:mm:ss")
-            };
-
-            commentArray.push(object);
-
-            /* 빈값 체크 */
-            if (_commentText != "" && _commentText.length < 100) {
-                appendList(object);
-            } else {
-                alert("텍스트를 1 ~ 100자 이하로 입력해주세요.");
-            }
-            saveComments(); //로컬스토리지 저장
-        };
-
-        const localStorage_Key = localStorage.getItem(comment_KEY);
-
-        /* 로컬스토리지 저장된 값이 있으면 불러오기 */
-        if (localStorage_Key !== null) {
-            const getCommentList = JSON.parse(localStorage_Key);
-            commentArray = getCommentList;
-
-            getCommentList.forEach(appendList);
-
-            console.log(commentArray, "로컬에 저장된 값");
-        };
-
-        /* 등록 버튼 클릭 */
-        $submitButton.addEventListener("click", () => {
-            console.log(_this, "화살표함수안 this ");
-            handleSubmit();
-        });
+      console.log(list.id, cleanArr);
     };
 
-    const layout_init = () => {
-        searchEvent();
-        storiesEvent();
-        commentEvent();
+    /* 리스트 append */
+    const appendList = object => {
+      /* 리스트 태그 생성 */
+      const li = document.createElement("li");
+      const writeDate = document.createElement("span");
+      const moreButton = document.createElement("span"); //더보기버튼
+      const deleteButton = document.createElement("button"); //삭제버튼
+      const content = document.createElement("span");
+      li.id = object.id;
+
+      moreButton.innerHTML = '<button class="comment__more js__comment__more">더보기</button>';
+      deleteButton.innerText = "X";
+      deleteButton.addEventListener("click", deleteList);
+      writeDate.innerHTML = object.date;
+      content.innerHTML = "<p>" + object.comment + "</p>";
+
+      li.prepend(writeDate);
+      li.prepend(moreButton);
+      li.prepend(deleteButton);
+      li.prepend(content);
+      $commentBox.prepend(li);
     };
 
-    layout_init();
+    /* 최종 서브밋 */
+    const handleSubmit = () => {
+      const commentId = commentArray.length;
+      const _commentText = $textArea.value; //text값 가져오기
+
+      $textArea.value = "";
+
+      const object = {
+        id: commentId,
+        comment: _commentText,
+        date: moment().format("YYYY.MM.DD HH:mm:ss")
+      };
+
+      commentArray.push(object);
+
+      /* 빈값 체크 */
+      if (_commentText != "" && _commentText.length < 100) {
+        appendList(object);
+      } else {
+        alert("텍스트를 1 ~ 100자 이하로 입력해주세요.");
+      }
+      saveComments(); //로컬스토리지 저장
+    };
+
+    const localStorage_Key = localStorage.getItem(comment_KEY);
+
+    /* 로컬스토리지 저장된 값이 있으면 불러오기 */
+    if (localStorage_Key !== null) {
+      const getCommentList = JSON.parse(localStorage_Key);
+      commentArray = getCommentList;
+
+      getCommentList.forEach(appendList);
+
+      console.log(commentArray, "로컬에 저장된 값");
+    }
+
+    /* 등록 버튼 클릭 */
+    $submitButton.addEventListener("click", () => {
+      console.log(_this, "화살표함수안 this ");
+      handleSubmit();
+    });
+  };
+
+  const layout_init = () => {
+    searchEvent();
+    storiesEvent();
+    commentEvent();
+  };
+
+  layout_init();
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (layout);

@@ -12,23 +12,23 @@
  * Created by jmju on 2023-01-26.
  */
 
-import layout from './divide/layout';
+import layout from "./divide/layout";
 
 const appMethods = {
-    layout,
+  layout,
 };
 
 const appInit = () => {
-    const appName = document.querySelector('body');
-    console.log(appName)
-    
-    if (appName) {
-        [layout, appMethods[appName]].forEach(method => {
-            if(method) method();
-        });
-    }
+  const appName = document.querySelector("body");
+  console.log(appName);
+
+  if (appName) {
+    [layout, appMethods[appName]].forEach((method) => {
+      if (method) method();
+    });
+  }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    appInit();
+document.addEventListener("DOMContentLoaded", () => {
+  appInit();
 });
