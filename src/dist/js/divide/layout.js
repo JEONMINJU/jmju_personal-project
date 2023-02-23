@@ -1,18 +1,7 @@
 /**
  * Created by jmju on 2023-01-26.
  */
-const dayjs = require("dayjs");
-
-const moviesDiv = document.getElementById("movies");
-
-import { getPopularMovies } from "../divide/api.js";
-import { config } from "../divide/config";
-
-export async function renderMovies() {
-  const movies = await getPopularMovies();
-  console.log(movies);
-  moviesDiv.innerHTML = movies;
-}
+// const dayjs = require("dayjs");
 
 const layout = () => {
   /* 상단 검색 */
@@ -168,37 +157,11 @@ const layout = () => {
 
       $textArea.value = "";
 
-<<<<<<< HEAD
       const object = {
         id: commentId,
         comment: _commentText,
-        date: moment().format("YYYY.MM.DD HH:mm:ss"),
+        // date: dayjs().format("YYYY.MM.DD HH:mm:ss"),
       };
-=======
-        /* 최종 서브밋 */
-        const handleSubmit = () => {
-            const commentId = commentArray.length;
-            const _commentText = $textArea.value;//text값 가져오기
-    
-            $textArea.value = "";
-    
-            const object = {
-                id : commentId,
-                comment : _commentText,
-                date : dayjs().format("YYYY.MM.DD HH:mm:ss"),
-            }
-            
-            commentArray.push(object);
-    
-            /* 빈값 체크 */
-            if (_commentText != "" && _commentText.length < 100) {
-                appendList(object);
-            } else {
-                alert("텍스트를 1 ~ 100자 이하로 입력해주세요.");
-            }
-            saveComments();//로컬스토리지 저장
-        }
->>>>>>> 9c25e7ae74fa58b8051bb457e6254c62702b6da4
 
       commentArray.push(object);
 
@@ -213,27 +176,18 @@ const layout = () => {
 
     const localStorage_Key = localStorage.getItem(comment_KEY);
 
-<<<<<<< HEAD
     /* 로컬스토리지 저장된 값이 있으면 불러오기 */
     if (localStorage_Key !== null) {
       const getCommentList = JSON.parse(localStorage_Key);
       commentArray = getCommentList;
-=======
-        /* 등록 버튼 클릭 */
-        $submitButton.addEventListener("click", () => {
-            handleSubmit();
-        });    
-    };
->>>>>>> 9c25e7ae74fa58b8051bb457e6254c62702b6da4
-
-      getCommentList.forEach(appendList);
-
-      console.log(commentArray, "로컬에 저장된 값");
     }
+
+    // getCommentList.forEach(appendList);
+
+    console.log(commentArray, "로컬에 저장된 값");
 
     /* 등록 버튼 클릭 */
     $submitButton.addEventListener("click", () => {
-      console.log(this, "화살표함수안 this ");
       handleSubmit();
     });
   };
