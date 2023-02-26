@@ -10,6 +10,7 @@
     <!-- library -->
     <link rel="stylesheet" href="/src/assets/css/main.css">
     <script src="/src/assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 </head>
 
 <body id="mj">
@@ -118,4 +119,50 @@
 </body>
 </html>
 
-<script src="../src/dist/js/test.js"></script>
+<script>
+    $(document).ready(function() {
+        console.log('dd!!');
+    $.ajax({
+      type: "GET",
+      url: "https://api.themoviedb.org/3/movie/550?api_key=23866a01cf06f69aa94e2bab3267a0a2",
+      dataType: "text",
+      contentType : "application/x-www-form-urlencoded;charset=UTF-8",
+      error: function() {
+        console.log('통신실패!!');
+      },
+      success: function(data) {
+        const testArr = data;
+        console.log("통신데이터 값 : " + data);
+      }
+    });
+  });
+
+  const searchSample = [
+    {
+        id: 1,
+        name: '핸드드립',
+        type: '포메라이언',
+        url: '/src/images/webpack-test.jpeg'
+    },
+    {
+        id: 2,
+        name: '로니',
+        type: '닥스훈트',
+        url: '/src/images/webpack-test1.jpg'
+    },
+    {
+        id: 3,
+        name: '두리',
+        type: '불독',
+        url: '/src/images/webpack-test2.jpg'
+    },
+    {
+        id: 4,
+        name: '포이',
+        type: '믹스',
+        url: '/src/images/webpack-test3.jpg'
+    },
+];
+</script>
+
+<!-- <script src="../src/dist/js/test.js"></script> -->

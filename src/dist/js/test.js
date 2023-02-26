@@ -25,3 +25,5 @@ const searchSample = [
         url: '/src/images/webpack-test3.jpg'
     },
 ];
+
+
