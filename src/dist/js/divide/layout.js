@@ -1,7 +1,7 @@
 /**
  * Created by jmju on 2023-01-26.
  */
-// const dayjs = require("dayjs");
+const dayjs = require("dayjs");
 
 const layout = () => {
   /* 상단 검색 */
@@ -160,7 +160,7 @@ const layout = () => {
       const object = {
         id: commentId,
         comment: _commentText,
-        // date: dayjs().format("YYYY.MM.DD HH:mm:ss"),
+        date: dayjs().format("YYYY.MM.DD HH:mm:ss"),
       };
 
       commentArray.push(object);

@@ -65,9 +65,10 @@ module.exports = {
                         loader: 'sass-loader',  
                         // 옵션 안썼을때 디폴트 적용 형식 어떤거?
                         options: {
-                            outputStyle: 'expanded', // 컴파일 된 css 파일 확장하여 보이기
+                            // outputStyle: 'expanded', // 컴파일 된 css 파일 확장하여 보이기
                             // outputStyle: 'compressed', // 컴파일 된 css 파일 압축
-                            sourceMap: true, // 배포용으로 빌드한 파일과 원본파일을 연결 시켜줌(개발자도구에서 파일의 출처를 알 수 있다.)
+                            outputStyle: isProductionMode ? 'compressed' : 'expanded',
+                            sourceMap: !isProductionMode, // 배포용으로 빌드한 파일과 원본파일을 연결 시켜줌(개발자도구에서 파일의 출처를 알 수 있다.)
                         },
                     },
                 ]
