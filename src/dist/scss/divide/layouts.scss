@@ -317,6 +317,179 @@
         }
     }
 
+    &__chat {
+        margin-top: 80px;
+        padding: 0 30px;
+
+        &__slider {
+        }
+
+        &__pagination {
+            display: block;
+            margin: 60px auto 0;
+            text-align: center;
+            
+            &.swiper-pagination-bullets {
+                .swiper-pagination-bullet {
+                    width: 12px;
+                    height: 12px;
+                    margin: 0 6px;
+                    background-color: #666;
+                    opacity: 1;
+                    &-active {
+                        background-color: #111;
+                    }
+                }
+            }
+        }
+
+        &__list {
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+
+            .list {
+                // 이미지 두개 케이스
+                &__inner {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 16px;
+                    gap: 8px;
+
+                    .list {
+                        &__item {
+                            border-radius: 0;
+                        }
+    
+                        &__thumb {
+                            width: 100%;
+                            height: 238px;
+                            border-radius: 16px;
+                        }
+    
+                        &__info {
+                            margin-top: 20px;
+    
+                            &__text {
+                                display: block;
+                                color: #111;
+                                font-size: 16px;
+                                line-height: 30px;
+                                // @include line(1); // 추후 믹스인 만들기
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+    
+                                > br {
+                                    display: none;
+                                }
+                            }
+    
+                            &__user {
+                                margin-top: 8px;
+    
+                                span {
+                                    color: #aaa;
+                                    &:not(:first-child):before {
+                                        background: #aaa;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__item {
+                    overflow: hidden;
+                    border-radius: 16px;
+                }
+
+                &__link {
+                    display: block;
+                    position: relative;
+                }
+
+                &__thumb {
+                    overflow: hidden;
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    height: 490px;
+                    background: #ddd;
+
+                    img, video {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        // transform: translate(-50%, -50%);
+                        margin: auto;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: rem(16px);
+                    }
+                }
+
+                &__dim { 
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 200px;
+                    padding: 94px 30px 40px;
+                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+                    border-radius: 0 0 16px 16px;
+                }
+
+                &__info {
+                    &__user {
+                        font-size: 0;
+                        
+                        span {
+                            display: inline-block;
+                            position: relative;
+                            color: #fff;
+                            font-size: 16px;
+                            line-height: 24px;
+
+                            &:not(:first-child) {
+                                padding-left: 20px;
+
+                                &:before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 8px;
+                                    width: 4px;
+                                    height: 4px;
+                                    border-radius: 50%;
+                                    background: #fff;
+                                    transform: translate(0, -50%);
+                                }
+                            }
+                        }
+                    }
+
+                    &__text {
+                        margin-top: 12px;
+                        color: #fff;
+                        font-size: 20px;
+                        line-height: 20px;
+                        // @include line(2);
+                        -webkit-box-orient: vertical;
+                        display: block;
+                        display: -webkit-box;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        word-break: break-all;
+                        -webkit-line-clamp: 2;
+                    }
+                }
+            }
+        }
+    }
+
     &__footer {
         display: flex;
         justify-content: center;
