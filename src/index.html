@@ -8,9 +8,11 @@
     <title>jmju personal project test</title>
 
     <!-- library -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/src/assets/css/main.css">
     <script src="/src/assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body id="mj">
@@ -111,7 +113,33 @@
             <ul class="comment__box js__comment__box"></ul>
         </div>
     </section>
-  
+
+    <!-- slide test -->
+    <section class="mj__slider">
+        <h2 class="mj__slider__title">progressbar slide test</h2>
+
+        <div class="mj__slider__container js__slider__container swiper-container">
+            <ul class="mj__slider__wrapper swiper-wrapper">
+                <li class="mj__slider__item swiper-slide">
+                    <figure class="mj__slider__image">
+                        <img src="/src/images/webpack-test1.jpg" alt="">
+                    </figure>
+                </li>
+                <li class="mj__slider__item swiper-slide">
+                    <figure class="mj__slider__image">
+                        <img src="/src/images/webpack-test2.jpg" alt="">
+                    </figure>
+                </li>
+                <li class="mj__slider__item swiper-slide">
+                    <figure class="mj__slider__image">
+                        <img src="/src/images/webpack-test3.jpg" alt="">
+                    </figure>
+                </li>
+            </ul>
+            <div class="mj__slider__pagination swiper-pagination"></div>
+        </div>
+    </section>
+
     <!-- footer -->
     <footer id="footer" class="mj__footer">
         <div class="mj__footer__inner">푸터</div>
@@ -120,6 +148,18 @@
 </html>
 
 <script>
+    new Swiper(".js__slider__container", { 
+        slidesPerView: "auto",
+        loop: true,
+        autoplay: {
+            delay: 3000
+        },
+        pagination: {
+            type: "progressbar",
+            el: '.mj__slider__pagination',
+        },
+    });
+    
     $(document).ready(function() {
         console.log('dd!!');
     $.ajax({
