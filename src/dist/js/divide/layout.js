@@ -192,10 +192,19 @@ const layout = () => {
     });
   };
 
+  const headerMenu = () => {
+    const $menu = document.getElementById('js__header__menu'); //입력된 텍스트
+    const $menuDepth = document.getElementById('js__menu');
+    $menu.addEventListener("click", function() {
+      $menuDepth.classList.add('show');
+    });
+  };
+
   const layout_init = () => {
     searchEvent();
     storiesEvent();
     commentEvent();
+    headerMenu();
   };
 
   layout_init();
