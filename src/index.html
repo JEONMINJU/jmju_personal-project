@@ -20,22 +20,6 @@
     <header id="header" class="mj__header">
         <div class="mj__header__inner">
             <button type="button" id="js__header__menu" class="mj__header__menu">menu</button>
-            
-            <div class="menu" id="js__menu">
-                <ul class="menu__depth">
-                    <li class="menu__depth__list">
-                        <a href="#" class="menu__depth__link">1</a>
-                    </li>
-    
-                    <li class="menu__depth__list">
-                        <a href="#" class="menu__depth__link">2</a>
-                    </li>
-    
-                    <li class="menu__depth__list">
-                        <a href="#" class="menu__depth__link">3</a>
-                    </li>
-                </ul>
-            </div>
 
             <!-- 검색 -->
             <form id="mj__header__form" class="mj__header__search">
@@ -343,7 +327,6 @@
       },
       success: function(data) {
         const testArr = data;
-        console.log("통신데이터 값 : " + data);
       }
     });
   });
